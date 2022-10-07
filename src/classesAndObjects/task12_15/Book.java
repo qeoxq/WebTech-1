@@ -89,8 +89,7 @@ public class Book implements Comparable<Book> {
     }
 
     @Override
-    public Book clone() throws CloneNotSupportedException {
-        //super.clone();
+    public Book clone() {
         return new Book(title, author, price, isbn);
     }
 
