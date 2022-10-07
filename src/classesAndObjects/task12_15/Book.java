@@ -1,10 +1,11 @@
 package classesAndObjects.task12_15;
 
-public class Book {
+public class Book implements Comparable<Book> {
     private String title;
     private String author;
     private int price;
     private static int edition;
+    private int isbn;
 
     public String getTitle() {
         return title;
@@ -38,10 +39,19 @@ public class Book {
         Book.edition = edition;
     }
 
-    public Book(String title, String author, int price) {
+    public int getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
+    }
+
+    public Book(String title, String author, int price, int isbn) {
         this.title = title;
         this.author = author;
         this.price = price;
+        this.isbn = isbn;
     }
 
     @Override
@@ -80,7 +90,12 @@ public class Book {
 
     @Override
     public Book clone() throws CloneNotSupportedException {
-        super.clone();
-        return new Book(title, author, price);
+        //super.clone();
+        return new Book(title, author, price, isbn);
+    }
+
+    @Override
+    public int compareTo(Book book) {
+        return this.isbn - book.isbn;
     }
 }

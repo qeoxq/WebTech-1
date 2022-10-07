@@ -7,8 +7,8 @@ public class ProgrammerBook extends Book {
     private int level;
 
 
-    public ProgrammerBook(String title, String author, int price, String language, int level) {
-        super(title, author, price);
+    public ProgrammerBook(String title, String author, int price, int isbn, String language, int level) {
+        super(title, author, price, isbn);
         this.language = language;
         this.level = level;
     }
@@ -35,8 +35,8 @@ public class ProgrammerBook extends Book {
         sb
                 .append("Author: ").append(super.getAuthor()).append(", ")
                 .append("Title: ").append(super.getTitle()).append(", ")
-                .append("Language: ").append(language)
-                .append("Level: ").append(level)
+                .append("Language: ").append(language).append(", ")
+                .append("Level: ").append(level).append(", ")
                 .append("Edition: ").append(Book.getEdition()).append(", ")
                 .append("Price: ").append(super.getPrice()).append(".");
         return sb.toString();
